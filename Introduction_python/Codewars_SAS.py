@@ -118,3 +118,92 @@ def get_middle(s):
         return("".join([s_list[Index-1], s_list[Index]]))
     else:
         return(s_list[Index])
+
+
+###############################
+###############################
+"""
+Isogram
+
+An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+
+Example: (Input --> Output)
+
+"Dermatoglyphics" --> true "aba" --> false "moOse" --> false (ignore letter case)
+"""
+
+def is_isogram(string):
+    string_list = [x.lower() for x in string]
+    if len(set(string_list)) == len(string_list) : return True 
+    else : return False
+
+# print(is_isogram("aba"))
+
+
+
+
+############################################################
+###########################################################
+##########################################################
+
+"""
+A square of squares
+You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
+
+However, sometimes, you can't arrange them into a square. Instead, you end up with an ordinary rectangle! Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait! That's it! You just have to check if your number of building blocks is a perfect square.
+
+Task
+Given an integral number, determine if it's a square number:
+
+In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
+
+The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+
+Examples
+-1  =>  false
+ 0  =>  true
+ 3  =>  false
+ 4  =>  true
+25  =>  true
+26  =>  false
+"""
+def is_square(n):
+    return True in [x**2 == n for x in range(n//2+1)]
+# print(is_square(0))
+
+
+def is_square(n):
+    mylist = []
+    for i in range(n//2+1):
+        if i**2 == n:
+            mylist.append(True)
+    return True in mylist
+
+# print(is_square(0))
+
+
+
+#####################################
+######################################
+#########################################
+
+'''
+# Sum of Digits / Digital Root
+
+Digital root is the recursive sum of all the digits in a number.
+
+Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
+
+Examples
+    16  -->  1 + 6 = 7
+   942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
+493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+'''
+def digital_root(n):
+    while len(str(n))>1:
+            n_list = [int(i) for i in list(str(n))]
+            n = sum(n_list)
+    return(n)
+    
+
