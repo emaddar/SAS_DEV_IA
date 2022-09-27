@@ -38,3 +38,83 @@ def likes(names):
         return(f"{names[0]}, {names[1]} and {names[2]} like this")
     else : 
         return(f"{names[0]}, {names[1]} and {len(names)-2} others like this")
+
+
+################################
+##################################
+#################################
+
+
+
+'''
+Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
+
+Examples
+"()"              =>  true
+")(()))"          =>  false
+"("               =>  false
+"(())((()())())"  =>  true
+Constraints
+0 <= input.length <= 100
+
+Along with opening (() and closing ()) parenthesis, input may contain any valid ASCII characters. Furthermore, the input string may be empty and/or not contain any parentheses at all. Do not treat other forms of brackets as parentheses (e.g. [], {}, <>).
+'''
+
+def valid_parentheses(string):
+    parentheses = ["(", ")"]
+    s = [x for x in string if x in parentheses]
+    if len(s) == 0 : return True
+    else :
+        count = 0
+        i = 0
+        while count >= 0:
+            if s[i] == "(":
+                count += 1  # each time open parenthese : count += 1
+            else:
+                count -= 1  # each time close parenthese : count += 1
+            i += 1
+            if i > len(s)-1 : break
+        if count < 0 :  
+                    return False
+        elif count == 0 :  
+                            return(True)
+        else : 
+                            return(False)
+
+
+############################################
+############################################
+############################################
+
+'''
+# Get the Middle Character
+
+You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+#Examples:
+
+Kata.getMiddle("test") should return "es"
+
+Kata.getMiddle("testing") should return "t"
+
+Kata.getMiddle("middle") should return "dd"
+
+Kata.getMiddle("A") should return "A"
+#Input
+
+A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases). You do not need to test for this. This is only here to tell you that you do not need to worry about your solution timing out.
+
+#Output
+
+The middle character(s) of the word represented as a string.
+
+'''
+
+
+def get_middle(s):
+    s_list = list(s)
+    Index = int(len(s_list)/2)
+    if len(s_list)%2 == 0:
+        return("".join([s_list[Index-1], s_list[Index]]))
+    else:
+        return(s_list[Index])
